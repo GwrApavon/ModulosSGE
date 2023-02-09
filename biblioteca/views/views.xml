@@ -8,8 +8,8 @@
       <field name="model">biblioteca.lector</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="dni"/>
-          <field name="nombre"/>
+            <field name="dni"/>
+            <field name="nombre"/>
         </tree>
       </field>
     </record>
