@@ -1,0 +1,130 @@
+<odoo>
+  <data>
+    <!--  explicit list view definition  -->
+    <!--  Primera entidad. Vistas de clientes  -->
+    <record model="ir.ui.view" id="tienda.cliente_list">
+      <field name="name">Creación de cliente</field>
+      <field name="model">tienda.cliente</field>
+      <field name="arch" type="xml">
+          <tree>
+            <field id_num="id_num"/>
+            <field name="name"/>
+            <field b_date="b_date"/>
+            <field address="address"/>
+            <field phone_number="phone_number"/>
+            <field bills_id="bills_id"/>
+          </tree>
+      </field>
+    </record>
+    <!--  Vistas de facturas  -->
+    <record model="ir.ui.view" id="tienda.factura_list">
+      <field name="name">Creación de factura</field>
+      <field name="model">tienda.factura</field>
+      <field name="arch" type="xml">
+          <tree>
+            <field bills_num="bills_num"/>
+            <field emission_date="emission_date"/>
+            <field total="total"/>
+            <field client_id="client_id"/>
+            <field products_id="products_id"/>
+          </tree>
+      </field>
+    </record>
+    <!--  Vistas de productos  -->
+    <record model="ir.ui.view" id="tienda.productos_list">
+      <field name="name">Creación de productos</field>
+      <field name="model">tienda.producto</field>
+      <field name="arch" type="xml">
+          <tree>
+            <field id="id_num"/>
+            <field name="name"/>
+            <field description="description"/>
+            <field price="price"/>
+            <field stock="stock"/>
+            <field bills_id="bills_id"/>
+            <field supplier_id="supplier_id"/>
+            <field categorie_id="categorie_id"/>
+          </tree>
+      </field>
+    </record>
+    <!--  Vistas de categorias  -->
+    <record model="ir.ui.view" id="tienda.categoria_list">
+      <field name="name">Creación de categorias</field>
+      <field name="model">tienda.categoria</field>
+      <field name="arch" type="xml">
+          <tree>
+            <field name="name"/>
+            <field product_id="product_id"/>
+          </tree>
+      </field>
+    </record>
+    <!--  Primera entidad. Vistas de proveedores  -->
+    <record model="ir.ui.view" id="tienda.proveedor_list">
+      <field name="name">Creación de proveedor</field>
+      <field name="model">tienda.proveedor</field>
+      <field name="arch" type="xml">
+          <tree>
+            <field id_num="id_num"/>
+            <field name="name"/>
+            <field address="address"/>
+            <field phone_number="phone_number"/>
+            <field product_id="product_id"/>
+          </tree>
+      </field>
+    </record>
+    <!--  actions opening views on models  -->
+    <record model="ir.actions.act_window" id="tienda.cliente_action_window">
+      <field name="name">Clientes</field>
+      <field name="res_model">tienda.cliente</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="tienda.facturas_action_window">
+      <field name="name">Facturas</field>
+      <field name="res_model">tienda.facturas</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="tienda.productos_action_window">
+      <field name="name">Productos</field>
+      <field name="res_model">tienda.productos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="tienda.categoria_action_window">
+      <field name="name">Categorias</field>
+      <field name="res_model">tienda.categoria</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="tienda.proveedores_action_window">
+      <field name="name">Proveedores</field>
+      <field name="res_model">tienda.proveedores</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <!--  server action to the one above  -->
+    <!-- 
+    <record model="ir.actions.server" id="garaje.action_server">
+      <field name="name">garaje server</field>
+      <field name="model_id" ref="model_garaje_garaje"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+ -->
+    <!--  Top menu item  -->
+    <menuitem name="Garaje" id="garaje.menu_root"/>
+    <!--  menu categories  -->
+    <menuitem name="Aparcamiento" id="garaje.aparcamiento_menu" parent="garaje.menu_root" action="garaje.aparcamiento_action_window"/>
+    <menuitem name="Coches" id="garaje.coches_menu" parent="garaje.menu_root" action="garaje.coche_action_window"/>
+    <menuitem name="Mantenimiento" id="garaje.mantenimiento_menu" parent="garaje.menu_root" action="garaje.mantenimiento_action_window"/>
+    <!--  actions. Haremos un action por cada entidad  -->
+    <!-- 
+    <menuitem name="List" id="garaje.menu_1_list" parent="garaje.menu_1"
+              action="garaje.action_window"/>
+    <menuitem name="Server to list" id="garaje" parent="garaje.menu_2"
+              action="garaje.action_server"/>
+ -->
+  </data>
+</odoo>
