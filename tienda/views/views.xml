@@ -1,74 +1,74 @@
 <odoo>
   <data>
     <!--  explicit list view definition  -->
-    <!--  Primera entidad. Vistas de clientes  -->
+    <!--  Vistas de clientes  -->
     <record model="ir.ui.view" id="tienda.cliente_list">
-      <field name="name">Creación de cliente</field>
+      <field name="name">Clientes</field>
       <field name="model">tienda.cliente</field>
       <field name="arch" type="xml">
           <tree>
-            <field id_num="id_num"/>
+            <field name="id_num"/>
             <field name="name"/>
-            <field b_date="b_date"/>
-            <field address="address"/>
-            <field phone_number="phone_number"/>
-            <field bills_id="bills_id"/>
+            <field name="b_date"/>
+            <field name="address"/>
+            <field name="phone_number"/>
+            <field name="bills_id"/>
           </tree>
       </field>
     </record>
     <!--  Vistas de facturas  -->
     <record model="ir.ui.view" id="tienda.factura_list">
-      <field name="name">Creación de factura</field>
+      <field name="name">Facturas</field>
       <field name="model">tienda.factura</field>
       <field name="arch" type="xml">
           <tree>
-            <field bills_num="bills_num"/>
-            <field emission_date="emission_date"/>
-            <field total="total"/>
-            <field client_id="client_id"/>
-            <field products_id="products_id"/>
+            <field name="bill_num"/>
+            <field name="emission_date"/>
+            <field name="total"/>
+            <field name="client_id"/>
+            <field name="products_id"/>
           </tree>
       </field>
     </record>
     <!--  Vistas de productos  -->
     <record model="ir.ui.view" id="tienda.productos_list">
-      <field name="name">Creación de productos</field>
+      <field name="name">Productos</field>
       <field name="model">tienda.producto</field>
       <field name="arch" type="xml">
           <tree>
-            <field id="id_num"/>
+            <field name="id"/>
             <field name="name"/>
-            <field description="description"/>
-            <field price="price"/>
-            <field stock="stock"/>
-            <field bills_id="bills_id"/>
-            <field supplier_id="supplier_id"/>
-            <field categorie_id="categorie_id"/>
+            <field name="description"/>
+            <field name="price"/>
+            <field name="stock"/>
+            <field name="bills_id"/>
+            <field name="supplier_id"/>
+            <field name="categorie_id"/>
           </tree>
       </field>
     </record>
     <!--  Vistas de categorias  -->
     <record model="ir.ui.view" id="tienda.categoria_list">
-      <field name="name">Creación de categorias</field>
+      <field name="name">Categorias</field>
       <field name="model">tienda.categoria</field>
       <field name="arch" type="xml">
           <tree>
             <field name="name"/>
-            <field product_id="product_id"/>
+            <field name="product_id"/>
           </tree>
       </field>
     </record>
     <!--  Primera entidad. Vistas de proveedores  -->
     <record model="ir.ui.view" id="tienda.proveedor_list">
-      <field name="name">Creación de proveedor</field>
+      <field name="name">Proveedores</field>
       <field name="model">tienda.proveedor</field>
       <field name="arch" type="xml">
           <tree>
-            <field id_num="id_num"/>
+            <field name="id_num"/>
             <field name="name"/>
-            <field address="address"/>
-            <field phone_number="phone_number"/>
-            <field product_id="product_id"/>
+            <field name="address"/>
+            <field name="phone_number"/>
+            <field name="product_id"/>
           </tree>
       </field>
     </record>
@@ -80,12 +80,12 @@
     </record>
     <record model="ir.actions.act_window" id="tienda.facturas_action_window">
       <field name="name">Facturas</field>
-      <field name="res_model">tienda.facturas</field>
+      <field name="res_model">tienda.factura</field>
       <field name="view_mode">tree,form</field>
     </record>
     <record model="ir.actions.act_window" id="tienda.productos_action_window">
       <field name="name">Productos</field>
-      <field name="res_model">tienda.productos</field>
+      <field name="res_model">tienda.producto</field>
       <field name="view_mode">tree,form</field>
     </record>
     <record model="ir.actions.act_window" id="tienda.categoria_action_window">
@@ -95,7 +95,7 @@
     </record>
     <record model="ir.actions.act_window" id="tienda.proveedores_action_window">
       <field name="name">Proveedores</field>
-      <field name="res_model">tienda.proveedores</field>
+      <field name="res_model">tienda.proveedor</field>
       <field name="view_mode">tree,form</field>
     </record>
     <!--  server action to the one above  -->

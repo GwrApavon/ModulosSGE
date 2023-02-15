@@ -27,7 +27,7 @@ class factura(models.Model):
     emission_date = fields.Date('Fecha de emision', required = True)
     total = fields.Float('Suma total', (4,2),  required = True)
     client_id = fields.Many2one('tienda.cliente', 'facturas-cliente')
-    products_id = fields.One2many('tienda.producto', 'bills_id' 'factura-prodcutos')
+    products_id = fields.One2many('tienda.producto', 'bills_id','factura-prodcutos')
 
 class producto(models.Model):
     _name = 'tienda.producto'
@@ -43,11 +43,11 @@ class producto(models.Model):
     categorie_id = fields.Many2one('tienda.categoria','prodcutos-categoria')
 
 class categoria(models.Model): 
-    _name = 'tienda.categorias'
+    _name = 'tienda.categoria'
     _description = 'categorias de los productos de una tienda'
 
     name = fields.Char(max_length=2, selection =[('O','Ordenadores'),('S','Smartphones'),('A','Audiovisual'), ('P','Periféricos'), ('T','Televisores'), ('G','Gaming')])
-    product_id = fields.One2many('tienda.producto', 'product_id', 'categoria-prodcutos')
+    product_id = fields.One2many('tienda.producto', 'categorie_id', 'categoria-prodcutos')
 
 class proveedor(models.Model): 
     _name = 'tienda.proveedor'
@@ -58,7 +58,7 @@ class proveedor(models.Model):
     name = fields.Char('Nombre', required = True)
     address = fields.Char('Direccion')
     phone_number = fields.Integer('Telefono', required =  True)    
-    product_id = fields.One2many('tienda.producto', 'supplier_id' 'proveedor-prodcutos')
+    product_id = fields.One2many('tienda.producto', 'supplier_id', 'proveedor-prodcutos')
 
 @api.constrains("phone_number")
 def _check_phone_number(self):
