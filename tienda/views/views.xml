@@ -17,30 +17,30 @@
       </field>
     </record>
 
-    <!-- <record model="ir.ui.view" id="tienda.cliente_list">
+    <record model="ir.ui.view" id="tienda.cliente_vista">
       <field name="name">Clientes</field>
       <field name="model">tienda.cliente</field>
       <field name="arch" type="xml">
         <form>
           <h1>
-            <i class="fa-solid fa-person"></i>
+            <i class="fa fa-fw o_button_icon fa-user-plus"></i>
             Cliente
           </h1>
           <group col = '6'>
-            <group colspan = '4'>
+            <group colspan = '2'>
               <field name="id_ltr"/>
             <field name="name"/>
             <field name="address"/>
-            <field name="bills_id"/>
+            <field name="phone_number"/>
+            <field name="b_date"/>          
             </group>
-            <group colspan = '2'>
-              <field name="phone_number"/>
-              <field name="b_date"/>
+            <group colspan = '4'>
+              <field name="bills_id"/>
             </group>
           </group>
         </form>
       </field>
-    </record> -->
+    </record>
     
     <!--  Vistas de facturas  -->
     <record model="ir.ui.view" id="tienda.factura_list">
@@ -56,6 +56,31 @@
           </tree>
       </field>
     </record>
+
+    <record model="ir.ui.view" id="tienda.factura_vista">
+      <field name="name">Facturas</field>
+      <field name="model">tienda.factura</field>
+      <field name="arch" type="xml">
+      <form>
+          <h1>
+            <i class="fa fa-fw o_button_icon fa-clipboard"></i>
+            Factura
+          </h1>
+          <group col = '6'>
+            <group colspan = '1'>
+             <field name="bill_num"/>
+              <field name="emission_date"/>
+              <field name="total"/>
+              <field name="client_id"/>      
+            </group>
+            <group colspan = '5'>
+              <field name="products_id"/>
+            </group>
+          </group>
+        </form>
+      </field>
+    </record>
+
     <!--  Vistas de productos  -->
     <record model="ir.ui.view" id="tienda.productos_list">
       <field name="name">Productos</field>
@@ -73,6 +98,37 @@
           </tree>
       </field>
     </record>
+
+    <record model="ir.ui.view" id="tienda.productos_vista">
+      <field name="name">Productos</field>
+      <field name="model">tienda.producto</field>
+      <field name="arch" type="xml">
+      <form>
+          <h1>
+            <i class="fa fa-fw o_button_icon fa-inbox"></i>
+            Productos
+          </h1>
+          <group col = '6'>
+            <group colspan = '4'>
+              <group colspan = '3'>
+                <field name="name"/>
+                <field name="description"/>  
+              </group>
+              <group colspan = '1'>  
+                <field name="price"/>
+                <field name="stock"/> 
+              </group>
+            </group>
+            <group colspan = '2'> 
+              <field name="bills_id"/>
+              <field name="supplier_id"/>
+            <field name="categorie_id"/>
+            </group>
+          </group>
+        </form>
+      </field>
+    </record>
+
     <!--  Vistas de categorias  -->
     <record model="ir.ui.view" id="tienda.categoria_list">
       <field name="name">Categorias</field>
@@ -82,6 +138,27 @@
             <field name="name"/>
             <field name="product_id"/>
           </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="tienda.categoria_vista">
+      <field name="name">Categorias</field>
+      <field name="model">tienda.categoria</field>
+      <field name="arch" type="xml">
+      <form>
+          <h1>
+            <i class="fa fa-fw o_button_icon fa-filter"></i>
+            Categorias
+          </h1>
+          <group col = '6'>
+            <group colspan = '1'>
+              <field name="name"/>
+            </group>
+            <group colspan = '5'> 
+              <field name="product_id"/>
+            </group>
+          </group>
+        </form>
       </field>
     </record>
     <!--  Primera entidad. Vistas de proveedores  -->
@@ -96,6 +173,30 @@
             <field name="phone_number"/>
             <field name="product_id"/>
           </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="tienda.proveedor_vista">
+      <field name="name">Proveedores</field>
+      <field name="model">tienda.proveedor</field>
+      <field name="arch" type="xml">
+      <form>
+          <h1>
+            <i class="fa fa-fw o_button_icon fa-truck"></i>
+            Proveedores
+          </h1>
+          <group col = '6'>
+            <group colspan = '2'>
+              <field name="id_ltr"/> 
+              <field name="name"/>
+              <field name="address"/>
+              <field name="phone_number"/>
+            </group>
+            <group colspan = '4'> 
+              <field name="product_id"/>
+            </group>
+          </group>
+        </form>
       </field>
     </record>
     <!--  actions opening views on models  -->

@@ -37,6 +37,11 @@ class factura(models.Model):
     total = fields.Float('Suma total', (4,2),  required = True)
     client_id = fields.Many2one('tienda.cliente', 'facturas-cliente')
     products_id = fields.One2many('tienda.producto', 'bills_id','factura-prodcutos')
+    @api.constrains("total")
+    def _check_total(self):
+        for record in self:
+            if record.total < 0 or record.total >= 10000:
+                raise ValidationError("El total maximo de la factura es 9999.99")
 
 class producto(models.Model):
     _name = 'tienda.producto'
